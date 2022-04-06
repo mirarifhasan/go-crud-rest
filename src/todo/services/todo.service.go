@@ -6,7 +6,6 @@ import (
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
-	"go.mongodb.org/mongo-driver/mongo"
 	"log"
 	"net/http"
 	"project/config/database"
@@ -18,30 +17,6 @@ type todo struct {
 	ID        int    `json:"id"`
 	Item      string `json:"item"`
 	Completed bool   `json:"completed"`
-}
-
-var todos = []todo{
-	{
-		ID:        1,
-		Item:      "Clean room",
-		Completed: false,
-	},
-	{
-		ID:        2,
-		Item:      "Read book",
-		Completed: false,
-	},
-	{
-		ID:        3,
-		Item:      "Buy grocery",
-		Completed: false,
-	},
-}
-
-var collection *mongo.Collection
-
-func init() {
-	collection = database.Collection
 }
 
 func GetTodos(context *gin.Context) {
