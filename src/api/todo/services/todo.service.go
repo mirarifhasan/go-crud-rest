@@ -9,8 +9,8 @@ import (
 	"log"
 	"net/http"
 	"project/config/database"
-	"project/src/todo/dtos"
-	"project/src/todo/models"
+	"project/src/api/todo/dtos"
+	"project/src/api/todo/models"
 )
 
 type todo struct {

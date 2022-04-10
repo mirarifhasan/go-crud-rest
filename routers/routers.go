@@ -2,12 +2,13 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	todoService "project/src/todo/services"
+	todoService "project/src/api/todo/services"
+	"project/src/common/middlewares"
 )
 
 func MyRouters() *gin.Engine {
 	router := gin.Default()
-	router.GET("/todos", todoService.GetTodos)
+	router.GET("/todos", middlewares.LogMiddleware(), todoService.GetTodos)
 	router.GET("/todos/:id", todoService.GetTodo)
 	router.POST("/todos", todoService.AddTodo)
 	router.PATCH("/todos/:id", todoService.UpdateTodo)
