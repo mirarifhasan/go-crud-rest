@@ -19,6 +19,10 @@ type todo struct {
 	Completed bool   `json:"completed"`
 }
 
+func init() {
+	fmt.Println("INIT func called")
+}
+
 func GetTodos(context *gin.Context) {
 	cur, err := database.Collection.Find(context, bson.D{{}})
 	if err != nil {

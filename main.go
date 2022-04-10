@@ -11,5 +11,7 @@ func main() {
 
 	database.ConnectDB()
 
+	fmt.Println("Program started")
+
 	routers.MyRouters()
 }
